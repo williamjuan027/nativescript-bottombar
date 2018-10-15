@@ -13,6 +13,7 @@ import {
 } from "../common";
 import { Color } from "tns-core-modules/color";
 import { fromResource } from "tns-core-modules/image-source";
+import { setTimeout } from "tns-core-modules/timer";
 import { BottomBarItem } from "./bottombar-item";
 
 declare const MiniTabBarItem, MiniTabBar, MiniTabBarBadge, MiniTabBarDelegate;
@@ -120,7 +121,7 @@ export class BottomBar extends BottomBarBase {
     }
 
     [inactiveColorProperty.setNative](inactiveColor: string) {
-        this.nativeView.inactiveColor = new Color(inactiveColor).ios;
+        setTimeout(() => { this.nativeView.inactiveColor = new Color(inactiveColor).ios });
     }
 
     [uncoloredBackgroundColorProperty.setNative](uncoloredBackgroundColor: string) {
