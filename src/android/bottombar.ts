@@ -13,6 +13,7 @@ import {
 } from "../common";
 import { BottomBarItem } from "./bottombar-item";
 import { Color } from "tns-core-modules/color";
+import { setTimeout } from "tns-core-modules/timer";
 import { fromResource } from "tns-core-modules/image-source";
 
 
@@ -96,7 +97,7 @@ export class BottomBar extends BottomBarBase {
     }
 
     [accentColorProperty.setNative](accentColor: string) {
-        this.nativeView.setAccentColor(new Color(accentColor).android);
+        setTimeout(() => { this.nativeView.setAccentColor(new Color(accentColor).android) });
     }
 
     [inactiveColorProperty.setNative](inactiveColor: string) {
